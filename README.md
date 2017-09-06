@@ -1,2 +1,3 @@
 # java-9-overview
-Simple examples of new stuff in Java 9 
+There is JDK 9 available in Beta currently. This project contains some examples of new stuff that is coming :)
+Streams, Collections, Process API, etc. 
