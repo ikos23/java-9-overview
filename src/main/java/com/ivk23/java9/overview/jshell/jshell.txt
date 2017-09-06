@@ -1,0 +1,3 @@
+# JDK 9 includes JShell console that allows interacting programming :)
+
+[PATH TO JDK]\jdk-9\bin>jshell

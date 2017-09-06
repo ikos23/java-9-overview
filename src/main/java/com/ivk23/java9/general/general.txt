@@ -1,0 +1,39 @@
+1) jshell demo
+2) live code examples - collections, interfaces, javadocs
+3) modular system - what ? what for ? show new jdk structure
+   java.base module - how it looks, what it includes, it's independant
+   http://www.journaldev.com/13106/java-9-modules
+   difference between package and module (can be some diagram)
+
+   ! Like Java 8 applications have Packages as a Top level components,
+     Java 9 applications have Module as Top Level components.
+
+   ! https://labs.consol.de/development/2017/02/13/getting-started-with-java9-modules.html
+
+   Modules : http://openjdk.java.net/projects/jigsaw/
+    there is a separate project
+    I am using Git Bash
+
+    $ mkdir -p mods/com.hello.world.module
+
+    $ "C:/Program Files/Java/jdk-9/bin/javac" -d mods/com.hello.world.module \
+          src/com.hello.world.module/module-info.java \
+          src/com.hello.world.module/com/hello/world/module/package1/HelloWorldService.java \
+          src/com.hello.world.module/com/hello/world/module/package1/Main.java
+
+    $ java --module-path mods -m com.hello.world.module/package1.Main
+
+    Package to JAR
+    $ mkdir mlib
+    $ "C:/Program Files/Java/jdk-9/bin/jar" --create --file=mlib/com.hello.world.module.jar \
+              --main-class=package1.Main -C mods/com.hello.world.module .
+    $ java -p mlib -m com.hello.world.module (execute :) main class name is not requeired
+
+4) Streams
+
+5) G1 will be the new default garbage collector
+   A common misconception we often hear is that Java has only one garbage collector when in fact it has 4.
+   Prior to Java 9,  the default garbage collector was the Parallel / Throughput Collector,
+   and now it will be replaced with G1 which was introduced in Java 7.
+   Generally, G1 was designed to better support heaps larger than 4GB and has been known to cause less frequent GC pauses,
+   but when a pause do comes, it tends to be longer.
